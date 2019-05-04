@@ -303,223 +303,30 @@ template {
 [hidden] {
   display: none;
 }
+#mainWrapper > .buttonWrapper > .button {
+  max-width: 300px;
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+  background-color: #485460;
+  color: #FFF;
+  padding: 10px;
+  box-sizing: border-box;
+  font-weight: 300;
+  cursor: pointer;
+}
+#mainWrapper > .buttonWrapper > .button:hover {
+  filter: brightness(1.1);
+}
 * {
   font-family: "Roboto", sans-serif !important;
 }
 body,
 html {
-  background-color: #212121;
+  background-color: #d2dae2;
 }
-#mainAppWrapper {
+#appWrapper {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-}
-#mainAppWrapper #mainTitleWrapper {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0 0 0;
-}
-#mainAppWrapper #mainTitleWrapper #mainTitle {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-color: #d1cdce;
-  display: inline-block;
-  padding: 10px;
-  border-radius: 5px;
-}
-#mainAppWrapper #mainTitleWrapper #mainTitle span {
-  display: block;
-  text-align: center;
-  color: #323232;
-}
-#mainAppWrapper #mainTitleWrapper #mainTitle #mainTitleUpper {
-  font-size: 86px;
-  font-weight: 500;
-}
-#mainAppWrapper #mainTitleWrapper #mainTitle #mainTitleRest {
-  font-size: 16px;
-  font-weight: 400;
-  margin: -20px 0 0 0;
-}
-#mainAppWrapper #newlanguageTitleWrapper {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-#mainAppWrapper #newlanguageTitleWrapper #newlanguageTitle {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-color: #d1cdce;
-  color: #323232;
-  display: inline-block;
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: 400;
-}
-#mainAppWrapper .textWrapper {
-  background-color: #323232;
-  border-radius: 5px;
-}
-#mainAppWrapper .textWrapper .textHeader {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-color: #282828;
-  color: #a1a09e;
-  padding: 5px 15px;
-  border-radius: 5px 5px 0 0;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-#mainAppWrapper .textWrapper .text {
-  padding: 5px 15px;
-  color: #fff;
-}
-#mainAppWrapper .textWrapper .text .quote {
-  display: block;
-}
-#mainAppWrapper .textWrapper .text .author {
-  display: block;
-  margin: 10px 0 0 0;
-  font-style: italic;
-}
-#mainAppWrapper #originalTextWrapper {
-  margin: 30px 0;
-}
-#mainAppWrapper #translatedTextOptionsWrapper {
-  display: flex;
-}
-@media only screen and (max-width: 750px) {
-  #mainAppWrapper #translatedTextOptionsWrapper {
-    flex-wrap: wrap;
-  }
-}
-#mainAppWrapper #translatedTextOptionsWrapper .translatedTextOption {
-  border: 2px solid #FFF;
-  color: #FFF;
-  flex: 1 1 0;
-  text-align: center;
-  padding: 20px;
-  margin: 0 10px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  transition: .3s all;
-}
-@media only screen and (max-width: 750px) {
-  #mainAppWrapper #translatedTextOptionsWrapper .translatedTextOption {
-    flex: 1 1 100%;
-    margin: 0 !important;
-    padding: 10px;
-    border-width: 1px;
-  }
-}
-#mainAppWrapper #translatedTextOptionsWrapper .translatedTextOption:first-of-type {
-  margin: 0 10px 0 0;
-}
-#mainAppWrapper #translatedTextOptionsWrapper .translatedTextOption:last-of-type {
-  margin: 0 0 0 10px;
-}
-#mainAppWrapper #translatedTextOptionsWrapper .translatedTextOption:hover {
-  background-color: #FFF;
-  color: #323232;
-}
-#mainAppWrapper #translatedTextOptionsWrapper .translatedTextOption div {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-#mainAppWrapper #translatedTextOptionsWrapper .translatedTextOption.correct {
-  background-color: green;
-}
-#mainAppWrapper #translatedTextOptionsWrapper .translatedTextOption.incorrect {
-  background-color: #dd403a !important;
-  border-color: #dd403a !important;
-}
-#mainAppWrapper #translatedTextOptionsWrapper .translatedTextOption.actualCorrect {
-  background-color: #87c38f !important;
-  border-color: #87c38f !important;
-}
-#mainAppWrapper #translatedTextOptionsWrapper .translatedTextOption.disable {
-  color: #FFF !important;
-  cursor: auto;
-}
-#mainAppWrapper #translatedTextOptionsWrapper .translatedTextOption.disable:hover {
-  background-color: inherit;
-}
-#mainAppWrapper #getNewTranslation {
-  display: flex;
-  justify-content: center;
-}
-#mainAppWrapper #getNewTranslation span {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  display: inline-block;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #23395b;
-  color: #d1cdce;
-  font-size: 36px;
-  margin: 20px 0 0 0;
-  cursor: pointer;
-  letter-spacing: 1.5px;
-}
-#mainAppWrapper #guessData {
-  margin: 20px 0;
-  display: flex;
-  justify-content: center;
-}
-#mainAppWrapper #guessData .guessStats {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  display: inline-block;
-  background-color: #d1cdce;
-  color: #323232;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 16px;
-  flex: 0 1 130px;
-  white-space: nowrap;
-  text-align: center;
-}
-#mainAppWrapper #guessData #guessCorrectStreak {
-  margin: 0 20px 0 0;
-}
-#mainAppWrapper #footer {
-  margin: 20px 0;
-}
-#mainAppWrapper #footer div {
-  margin: 0 0 5px 0;
-  color: #d1cdce;
-  text-align: center;
-}
-#mainAppWrapper #footer div a {
-  color: #0d7377;
-  text-decoration: none;
 }
