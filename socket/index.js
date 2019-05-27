@@ -1,21 +1,15 @@
 const GamesContainer = require.main.require('./models/gamesContainer.js').GamesContainer;
 
+const cookieName = process.env.COOKIE_IDENTIFIER_NAME;
+
 let SocketHandler = class SocketHandler {
     constructor(socket) {
+        var identifierCookie = socket.handshake.cookies[cookieName];
+
         // if a user refreshes the page, I want to remember their state, and their session/id. Maybe a cookie?
 
-        console.log("user connected to socket.");
-        console.log("id: " + socket.id)
-        console.log("client.id: " + socket.client.id)
-        console.log("handshake.id: " + socket.handshake.id)
-        console.log("\n\n")
-
         socket.on('disconnect', function () {
-            console.log("user disconnected from socket.")
-            console.log("id: " + socket.id)
-            console.log("client.id: " + socket.client.id)
-            console.log("handshake.id: " + socket.handshake.id)
-            console.log("\n\n")
+            console.log("disconnect.")
         });
 
         socket.on("play vs random", function () {

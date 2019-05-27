@@ -12,6 +12,7 @@ const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
+var cookieParser = require("cookie-parser");
 
 const session = require('express-session');
 const sessionOptions = {
@@ -28,14 +29,18 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(session(sessionOptions));
-
-app.get("/", function (req, res) {
-    res.sendFile(__dirname + '/views/index.html');
-});
+app.use(cookieParser());
 
 const SocketHandler = require('./socket/index.js').SocketHandler;
 io.on('connection', function(socket) {
     new SocketHandler(socket);
+});
+
+var cookieMiddleware = require('./models/cookie.js');
+app.use(cookieMiddleware);
+
+app.get("/", function (req, res) {
+    res.sendFile(__dirname + '/views/index.html');
 });
 
 // Start the application

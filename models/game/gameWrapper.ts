@@ -15,6 +15,16 @@ let addGame = function(game) {
     games.push(game);
 }
 
+let playerIsInQueue = function(newPlayer) {
+    for (var i = 0; i < queue.length; i++) {
+        if (queue[i].handshake.cookies[process.env.COOKIE_IDENTIFIER_NAME] == newPlayer.handshake.cookies[process.env.COOKIE_IDENTIFIER_NAME]) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 let createLobbyKey = function (length) {
     var result = "";
     var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -44,11 +54,12 @@ let lobbyKeyExists = function(key) {
 }
 
 let joinRandomLobby = function(socket) {
+    console.log(playerIsInQueue(socket))
     if (!queueHasPlayers()) {
         addToQueue(socket);
 
         socket.emit("joined random queue");
-    } else {
+    } else if (!playerIsInQueue(socket)) {
         let opponent = queue[0];
         queue.shift();
         let game = new Game(opponent.id, socket.id);
@@ -57,6 +68,8 @@ let joinRandomLobby = function(socket) {
 
         socket.emit("new game", game);
         opponent.emit("new game", game);
+    } else {
+        socket.emit("joined random queue");
     }
 }
 
