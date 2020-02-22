@@ -1,9 +1,3 @@
 {
-    "less.compile": {
-        "main": ["style.less"]
-    },
-    "files.exclude": {
-        "**/*.js": {"when": "$(basename).ts"},
-        "**/*.css": {"when": "$(basename).less"}
-    },
+    "typescript.tsdk": "node_modules/typescript/lib"
 }
